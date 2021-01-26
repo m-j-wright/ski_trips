@@ -1,0 +1,161 @@
+<div>
+  <div>
+    <h1>
+      Trip #<%= @the_trip.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/trips">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_trip/<%= @the_trip.id %>">
+          Delete trip
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        User
+      </dt>
+      <dd>
+        <%= @the_trip.user_id %>
+      </dd>
+
+      <dt>
+        Mountain
+      </dt>
+      <dd>
+        <%= @the_trip.mountain_id %>
+      </dd>
+
+      <dt>
+        Name
+      </dt>
+      <dd>
+        <%= @the_trip.name %>
+      </dd>
+
+      <dt>
+        Image
+      </dt>
+      <dd>
+        <%= @the_trip.image %>
+      </dd>
+
+      <dt>
+        Description
+      </dt>
+      <dd>
+        <%= @the_trip.description %>
+      </dd>
+
+      <dt>
+        Date
+      </dt>
+      <dd>
+        <%= @the_trip.date %>
+      </dd>
+
+      <dt>
+        Comments count
+      </dt>
+      <dd>
+        <%= @the_trip.comments_count %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_trip.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_trip.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit trip
+    </h2>
+
+    <form action="/modify_trip/<%= @the_trip.id %>"  method="post" >
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_trip.user_id %>">
+      </div>
+
+      <div>
+        <label for="mountain_id_box">
+          Mountain
+        </label>
+
+        <input type="text" id="mountain_id_box" name="query_mountain_id" value="<%= @the_trip.mountain_id %>">
+      </div>
+
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name" value="<%= @the_trip.name %>">
+      </div>
+
+      <div>
+        <label for="image_box">
+          Image
+        </label>
+
+        <input type="text" id="image_box" name="query_image" value="<%= @the_trip.image %>">
+      </div>
+
+      <div>
+        <label for="description_box">
+          Description
+        </label>
+
+        <textarea id="description_box" name="query_description"><%= @the_trip.description %></textarea>
+      </div>
+
+      <div>
+        <label for="date_box">
+          Date
+        </label>
+
+        <input type="date" id="date_box" name="query_date" value="<%= @the_trip.date %>">
+      </div>
+
+      <div>
+        <label for="comments_count_box">
+          Comments count
+        </label>
+
+        <input type="text" id="comments_count_box" name="query_comments_count" value="<%= @the_trip.comments_count %>">
+      </div>
+
+      <button>
+        Update trip
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

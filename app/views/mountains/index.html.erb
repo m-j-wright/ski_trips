@@ -1,0 +1,118 @@
+<div>
+  <div>
+    <h1>
+      List of all mountains
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new mountain
+    </h2>
+
+    <form action="/insert_mountain" method="post">
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name">
+      </div>
+
+      <div>
+        <label for="image_box">
+          Image
+        </label>
+
+        <input type="text" id="image_box" name="query_image">
+      </div>
+
+      <div>
+        <label for="trips_count_box">
+          Trips count
+        </label>
+
+        <input type="text" id="trips_count_box" name="query_trips_count">
+      </div>
+
+      <button>
+        Create mountain
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table>
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Name
+        </th>
+
+        <th>
+          Image
+        </th>
+
+        <th>
+          Trips count
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_mountains.each do |a_mountain| %>
+      <tr>
+        <td>
+          <%= a_mountain.id %>
+        </td>
+
+        <td>
+          <%= a_mountain.name %>
+        </td>
+
+        <td>
+          <%= a_mountain.image %>
+        </td>
+
+        <td>
+          <%= a_mountain.trips_count %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_mountain.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_mountain.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/mountains/<%= a_mountain.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>
